@@ -1,0 +1,1580 @@
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:intl/intl.dart' as intl;
+
+import 'app_localizations_ar.dart';
+import 'app_localizations_en.dart';
+
+// ignore_for_file: type=lint
+
+/// Callers can lookup localized strings with an instance of AppLocalizations
+/// returned by `AppLocalizations.of(context)`.
+///
+/// Applications need to include `AppLocalizations.delegate()` in their app's
+/// `localizationDelegates` list, and the locales they support in the app's
+/// `supportedLocales` list. For example:
+///
+/// ```dart
+/// import 'generated/app_localizations.dart';
+///
+/// return MaterialApp(
+///   localizationsDelegates: AppLocalizations.localizationsDelegates,
+///   supportedLocales: AppLocalizations.supportedLocales,
+///   home: MyApplicationHome(),
+/// );
+/// ```
+///
+/// ## Update pubspec.yaml
+///
+/// Please make sure to update your pubspec.yaml to include the following
+/// packages:
+///
+/// ```yaml
+/// dependencies:
+///   # Internationalization support.
+///   flutter_localizations:
+///     sdk: flutter
+///   intl: any # Use the pinned version from flutter_localizations
+///
+///   # Rest of dependencies
+/// ```
+///
+/// ## iOS Applications
+///
+/// iOS applications define key application metadata, including supported
+/// locales, in an Info.plist file that is built into the application bundle.
+/// To configure the locales supported by your app, you’ll need to edit this
+/// file.
+///
+/// First, open your project’s ios/Runner.xcworkspace Xcode workspace file.
+/// Then, in the Project Navigator, open the Info.plist file under the Runner
+/// project’s Runner folder.
+///
+/// Next, select the Information Property List item, select Add Item from the
+/// Editor menu, then select Localizations from the pop-up menu.
+///
+/// Select and expand the newly-created Localizations item then, for each
+/// locale your application supports, add a new item and select the locale
+/// you wish to add from the pop-up menu in the Value field. This list should
+/// be consistent with the languages listed in the AppLocalizations.supportedLocales
+/// property.
+abstract class AppLocalizations {
+  AppLocalizations(String locale)
+    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+
+  final String localeName;
+
+  static AppLocalizations of(BuildContext context) {
+    return Localizations.of<AppLocalizations>(context, AppLocalizations)!;
+  }
+
+  static const LocalizationsDelegate<AppLocalizations> delegate =
+      _AppLocalizationsDelegate();
+
+  /// A list of this localizations delegate along with the default localizations
+  /// delegates.
+  ///
+  /// Returns a list of localizations delegates containing this delegate along with
+  /// GlobalMaterialLocalizations.delegate, GlobalCupertinoLocalizations.delegate,
+  /// and GlobalWidgetsLocalizations.delegate.
+  ///
+  /// Additional delegates can be added by appending to this list in
+  /// MaterialApp. This list does not have to be used at all if a custom list
+  /// of delegates is preferred or required.
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
+        delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ];
+
+  /// A list of this localizations delegate's supported locales.
+  static const List<Locale> supportedLocales = <Locale>[
+    Locale('ar'),
+    Locale('en'),
+  ];
+
+  /// No description provided for @hello.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello'**
+  String get hello;
+
+  /// No description provided for @welcome.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome'**
+  String get welcome;
+
+  /// No description provided for @goodbye.
+  ///
+  /// In en, this message translates to:
+  /// **'Goodbye'**
+  String get goodbye;
+
+  /// No description provided for @thank_you.
+  ///
+  /// In en, this message translates to:
+  /// **'Thank you'**
+  String get thank_you;
+
+  /// No description provided for @yes.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes'**
+  String get yes;
+
+  /// No description provided for @signIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign In'**
+  String get signIn;
+
+  /// No description provided for @signInContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign In Content'**
+  String get signInContent;
+
+  /// No description provided for @language.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get language;
+
+  /// No description provided for @languageEnglish.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get languageEnglish;
+
+  /// No description provided for @languageArabic.
+  ///
+  /// In en, this message translates to:
+  /// **'Arabic'**
+  String get languageArabic;
+
+  /// No description provided for @loading.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading...'**
+  String get loading;
+
+  /// No description provided for @welcomeBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome Back'**
+  String get welcomeBack;
+
+  /// No description provided for @signInWithCorporateCredentials.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in with your corporate credentials'**
+  String get signInWithCorporateCredentials;
+
+  /// No description provided for @workEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Work Email'**
+  String get workEmail;
+
+  /// No description provided for @workEmailHint.
+  ///
+  /// In en, this message translates to:
+  /// **'name@company.com'**
+  String get workEmailHint;
+
+  /// No description provided for @password.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get password;
+
+  /// No description provided for @passwordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your password'**
+  String get passwordHint;
+
+  /// No description provided for @keepMeSignedIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep me signed in'**
+  String get keepMeSignedIn;
+
+  /// No description provided for @forgotPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot Password?'**
+  String get forgotPassword;
+
+  /// No description provided for @homeScreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Home Screen'**
+  String get homeScreen;
+
+  /// No description provided for @notifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get notifications;
+
+  /// No description provided for @markAllNotificationsAsRead.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark all as read'**
+  String get markAllNotificationsAsRead;
+
+  /// No description provided for @clearAllNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear all notifications'**
+  String get clearAllNotifications;
+
+  /// No description provided for @quickActions.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick Actions'**
+  String get quickActions;
+
+  /// No description provided for @quickSignIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick Sign-In'**
+  String get quickSignIn;
+
+  /// No description provided for @useFingerprintOrFaceId.
+  ///
+  /// In en, this message translates to:
+  /// **'Use Fingerprint or Face ID'**
+  String get useFingerprintOrFaceId;
+
+  /// No description provided for @or.
+  ///
+  /// In en, this message translates to:
+  /// **'OR'**
+  String get or;
+
+  /// No description provided for @todayAttendance.
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s attendance'**
+  String get todayAttendance;
+
+  /// No description provided for @onShift.
+  ///
+  /// In en, this message translates to:
+  /// **'On Shift'**
+  String get onShift;
+
+  /// No description provided for @checkedInAt.
+  ///
+  /// In en, this message translates to:
+  /// **'Checked in at '**
+  String get checkedInAt;
+
+  /// No description provided for @hoursWorked.
+  ///
+  /// In en, this message translates to:
+  /// **' hours worked '**
+  String get hoursWorked;
+
+  /// No description provided for @insideOffice.
+  ///
+  /// In en, this message translates to:
+  /// **'Inside the office'**
+  String get insideOffice;
+
+  /// No description provided for @outsideOffice.
+  ///
+  /// In en, this message translates to:
+  /// **'Outside the office'**
+  String get outsideOffice;
+
+  /// No description provided for @checkIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Check In'**
+  String get checkIn;
+
+  /// No description provided for @checkOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Check Out'**
+  String get checkOut;
+
+  /// No description provided for @checkInSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Checked in successfully'**
+  String get checkInSuccess;
+
+  /// No description provided for @checkOutSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Checked out successfully'**
+  String get checkOutSuccess;
+
+  /// No description provided for @locationPermissionDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Location permission is required to verify attendance.'**
+  String get locationPermissionDenied;
+
+  /// No description provided for @locationServiceDisabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enable GPS/location services on your device.'**
+  String get locationServiceDisabled;
+
+  /// No description provided for @locationPermissionRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Location permission is required to verify your workplace attendance.'**
+  String get locationPermissionRequired;
+
+  /// No description provided for @locationPermissionDeniedMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Location permission was denied. Please grant location access to verify attendance.'**
+  String get locationPermissionDeniedMessage;
+
+  /// No description provided for @locationPermissionDeniedRepeatedly.
+  ///
+  /// In en, this message translates to:
+  /// **'Location permission was denied multiple times. Please enable it in App Settings or tap retry.'**
+  String get locationPermissionDeniedRepeatedly;
+
+  /// No description provided for @locationPermissionPermanentlyDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Location permission is permanently denied. Please open App Settings and allow location access while using the app.'**
+  String get locationPermissionPermanentlyDenied;
+
+  /// No description provided for @locationPreciseRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Precise location is required to verify workplace attendance. Please enable Precise Location in App Settings.'**
+  String get locationPreciseRequired;
+
+  /// No description provided for @locationUnableToDetermine.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to determine your current location. Please check your location settings and try again.'**
+  String get locationUnableToDetermine;
+
+  /// No description provided for @locationTimeout.
+  ///
+  /// In en, this message translates to:
+  /// **'Location request timed out. Please move to an area with a clearer GPS signal and try again.'**
+  String get locationTimeout;
+
+  /// No description provided for @locationTemporarilyUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Your current location is temporarily unavailable. Please wait a moment and try again.'**
+  String get locationTemporarilyUnavailable;
+
+  /// No description provided for @locationUnexpectedError.
+  ///
+  /// In en, this message translates to:
+  /// **'An unexpected error occurred while retrieving your location. Please try again.'**
+  String get locationUnexpectedError;
+
+  /// No description provided for @retry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get retry;
+
+  /// No description provided for @openAppSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Open App Settings'**
+  String get openAppSettings;
+
+  /// No description provided for @openLocationSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable Location Services'**
+  String get openLocationSettings;
+
+  /// No description provided for @sessionExpiredWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Your session has expired. Please try again to continue.'**
+  String get sessionExpiredWarning;
+
+  /// No description provided for @invalidCredentialsWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid credentials. Please try again.'**
+  String get invalidCredentialsWarning;
+
+  /// No description provided for @pendingTasks.
+  ///
+  /// In en, this message translates to:
+  /// **'Pending Tasks'**
+  String get pendingTasks;
+
+  /// No description provided for @nextMeeting.
+  ///
+  /// In en, this message translates to:
+  /// **'Next Meeting'**
+  String get nextMeeting;
+
+  /// No description provided for @leaveBalance.
+  ///
+  /// In en, this message translates to:
+  /// **'Leave Balance'**
+  String get leaveBalance;
+
+  /// No description provided for @verifyYourIdentityToAccessYourAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify your identity to access your account'**
+  String get verifyYourIdentityToAccessYourAccount;
+
+  /// No description provided for @tapToScanFingerprintFaceID.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to scan Fingerprint / Face ID'**
+  String get tapToScanFingerprintFaceID;
+
+  /// No description provided for @useEmailAndPasswordInstead.
+  ///
+  /// In en, this message translates to:
+  /// **'Use email and password instead'**
+  String get useEmailAndPasswordInstead;
+
+  /// No description provided for @biometricsNotAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Biometric authentication is not available on this device.'**
+  String get biometricsNotAvailable;
+
+  /// No description provided for @authCanceledOrFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Authentication canceled or failed.'**
+  String get authCanceledOrFailed;
+
+  /// No description provided for @requestLeave.
+  ///
+  /// In en, this message translates to:
+  /// **'Request Leave'**
+  String get requestLeave;
+
+  /// No description provided for @submitTask.
+  ///
+  /// In en, this message translates to:
+  /// **'Submit Task'**
+  String get submitTask;
+
+  /// No description provided for @viewCalendar.
+  ///
+  /// In en, this message translates to:
+  /// **'View Calendar'**
+  String get viewCalendar;
+
+  /// No description provided for @resetPasswordTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Password'**
+  String get resetPasswordTitle;
+
+  /// No description provided for @resetPasswordDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your work email and we\'ll send you a reset link.'**
+  String get resetPasswordDescription;
+
+  /// No description provided for @sendResetLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Send Reset Link'**
+  String get sendResetLink;
+
+  /// No description provided for @enterWorkEmailMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your work email'**
+  String get enterWorkEmailMessage;
+
+  /// No description provided for @invalidEmailFormatMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid work email format'**
+  String get invalidEmailFormatMessage;
+
+  /// No description provided for @enterPasswordMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your password'**
+  String get enterPasswordMessage;
+
+  /// No description provided for @aiHrAssistant.
+  ///
+  /// In en, this message translates to:
+  /// **'AI HR Assistant'**
+  String get aiHrAssistant;
+
+  /// No description provided for @drawerHeader.
+  ///
+  /// In en, this message translates to:
+  /// **'Drawer Header'**
+  String get drawerHeader;
+
+  /// No description provided for @drawerItem1.
+  ///
+  /// In en, this message translates to:
+  /// **'Item 1'**
+  String get drawerItem1;
+
+  /// No description provided for @drawerItem2.
+  ///
+  /// In en, this message translates to:
+  /// **'Item 2'**
+  String get drawerItem2;
+
+  /// No description provided for @drawerItem3.
+  ///
+  /// In en, this message translates to:
+  /// **'Item 3'**
+  String get drawerItem3;
+
+  /// No description provided for @attendance.
+  ///
+  /// In en, this message translates to:
+  /// **'Attendance'**
+  String get attendance;
+
+  /// No description provided for @attendanceDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Location-validated check in and history'**
+  String get attendanceDescription;
+
+  /// No description provided for @noAttendanceRecords.
+  ///
+  /// In en, this message translates to:
+  /// **'No attendance records'**
+  String get noAttendanceRecords;
+
+  /// No description provided for @noAttendanceRecordsMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'There are no attendance records for this month.'**
+  String get noAttendanceRecordsMessage;
+
+  /// No description provided for @history.
+  ///
+  /// In en, this message translates to:
+  /// **'History'**
+  String get history;
+
+  /// No description provided for @june2026.
+  ///
+  /// In en, this message translates to:
+  /// **'June 2026'**
+  String get june2026;
+
+  /// No description provided for @insideWorkplaceRadius.
+  ///
+  /// In en, this message translates to:
+  /// **'Inside workplace radius'**
+  String get insideWorkplaceRadius;
+
+  /// No description provided for @gpsAccuracy.
+  ///
+  /// In en, this message translates to:
+  /// **'GPS accuracy +/-8m - 42m to office'**
+  String get gpsAccuracy;
+
+  /// No description provided for @valid.
+  ///
+  /// In en, this message translates to:
+  /// **'Valid'**
+  String get valid;
+
+  /// No description provided for @present.
+  ///
+  /// In en, this message translates to:
+  /// **'Present'**
+  String get present;
+
+  /// No description provided for @late.
+  ///
+  /// In en, this message translates to:
+  /// **'Late'**
+  String get late;
+
+  /// No description provided for @attendanceDate1.
+  ///
+  /// In en, this message translates to:
+  /// **'Mon, Jun 09'**
+  String get attendanceDate1;
+
+  /// No description provided for @attendanceDetails1.
+  ///
+  /// In en, this message translates to:
+  /// **'08:45 AM - 05:32 PM  -  8h 47m'**
+  String get attendanceDetails1;
+
+  /// No description provided for @attendanceDate2.
+  ///
+  /// In en, this message translates to:
+  /// **'Fri, Jun 06'**
+  String get attendanceDate2;
+
+  /// No description provided for @attendanceDetails2.
+  ///
+  /// In en, this message translates to:
+  /// **'09:18 AM - 05:40 PM  -  8h 22m'**
+  String get attendanceDetails2;
+
+  /// No description provided for @attendanceDate3.
+  ///
+  /// In en, this message translates to:
+  /// **'Thu, Jun 05'**
+  String get attendanceDate3;
+
+  /// No description provided for @attendanceDetails3.
+  ///
+  /// In en, this message translates to:
+  /// **'08:52 AM - 05:28 PM  -  8h 36m'**
+  String get attendanceDetails3;
+
+  /// No description provided for @orders.
+  ///
+  /// In en, this message translates to:
+  /// **'Orders'**
+  String get orders;
+
+  /// No description provided for @tasks.
+  ///
+  /// In en, this message translates to:
+  /// **'Tasks'**
+  String get tasks;
+
+  /// No description provided for @account.
+  ///
+  /// In en, this message translates to:
+  /// **'Account'**
+  String get account;
+
+  /// No description provided for @profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profile;
+
+  /// No description provided for @settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings;
+
+  /// No description provided for @logout.
+  ///
+  /// In en, this message translates to:
+  /// **'Logout'**
+  String get logout;
+
+  /// No description provided for @submit.
+  ///
+  /// In en, this message translates to:
+  /// **'Submit'**
+  String get submit;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @trackAssignments.
+  ///
+  /// In en, this message translates to:
+  /// **'Track assignments and submit for review'**
+  String get trackAssignments;
+
+  /// No description provided for @all.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get all;
+
+  /// No description provided for @inProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'In Progress'**
+  String get inProgress;
+
+  /// No description provided for @underReview.
+  ///
+  /// In en, this message translates to:
+  /// **'Under Review'**
+  String get underReview;
+
+  /// No description provided for @completed.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed'**
+  String get completed;
+
+  /// No description provided for @noTasksHere.
+  ///
+  /// In en, this message translates to:
+  /// **'No tasks here'**
+  String get noTasksHere;
+
+  /// No description provided for @noTasksMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'There are no tasks in this filter right now.'**
+  String get noTasksMessage;
+
+  /// No description provided for @submitForReview.
+  ///
+  /// In en, this message translates to:
+  /// **'Submit for Review'**
+  String get submitForReview;
+
+  /// No description provided for @notes.
+  ///
+  /// In en, this message translates to:
+  /// **'Notes'**
+  String get notes;
+
+  /// No description provided for @notesHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a note for your manager...'**
+  String get notesHint;
+
+  /// No description provided for @attachments.
+  ///
+  /// In en, this message translates to:
+  /// **'Attachments'**
+  String get attachments;
+
+  /// No description provided for @tapToUpload.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to upload a file'**
+  String get tapToUpload;
+
+  /// No description provided for @fileFormatsSupported.
+  ///
+  /// In en, this message translates to:
+  /// **'PDF, DOCX, PNG up to 10MB'**
+  String get fileFormatsSupported;
+
+  /// No description provided for @removeAttachment.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove attachment'**
+  String get removeAttachment;
+
+  /// No description provided for @taskSubmittedSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Task submitted for review.'**
+  String get taskSubmittedSuccess;
+
+  /// No description provided for @due.
+  ///
+  /// In en, this message translates to:
+  /// **'Due'**
+  String get due;
+
+  /// No description provided for @managerFeedback.
+  ///
+  /// In en, this message translates to:
+  /// **'Manager feedback: {feedback}'**
+  String managerFeedback(String feedback);
+
+  /// No description provided for @low.
+  ///
+  /// In en, this message translates to:
+  /// **'Low'**
+  String get low;
+
+  /// No description provided for @medium.
+  ///
+  /// In en, this message translates to:
+  /// **'Medium'**
+  String get medium;
+
+  /// No description provided for @high.
+  ///
+  /// In en, this message translates to:
+  /// **'High'**
+  String get high;
+
+  /// No description provided for @urgent.
+  ///
+  /// In en, this message translates to:
+  /// **'Urgent'**
+  String get urgent;
+
+  /// No description provided for @leave.
+  ///
+  /// In en, this message translates to:
+  /// **'Leave'**
+  String get leave;
+
+  /// No description provided for @balancesRequestsGoals.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage your balances, requests and leave history.'**
+  String get balancesRequestsGoals;
+
+  /// No description provided for @leaveType.
+  ///
+  /// In en, this message translates to:
+  /// **'Leave Type'**
+  String get leaveType;
+
+  /// No description provided for @leaveRequestNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Leave request not found'**
+  String get leaveRequestNotFound;
+
+  /// No description provided for @dateRange.
+  ///
+  /// In en, this message translates to:
+  /// **'Date Range'**
+  String get dateRange;
+
+  /// No description provided for @status.
+  ///
+  /// In en, this message translates to:
+  /// **'Status'**
+  String get status;
+
+  /// No description provided for @selectLeaveType.
+  ///
+  /// In en, this message translates to:
+  /// **'Select leave type'**
+  String get selectLeaveType;
+
+  /// No description provided for @annualLeave.
+  ///
+  /// In en, this message translates to:
+  /// **'Annual Leave'**
+  String get annualLeave;
+
+  /// No description provided for @casualLeave.
+  ///
+  /// In en, this message translates to:
+  /// **'Casual Leave'**
+  String get casualLeave;
+
+  /// No description provided for @sickLeave.
+  ///
+  /// In en, this message translates to:
+  /// **'Sick Leave'**
+  String get sickLeave;
+
+  /// No description provided for @emergencyLeave.
+  ///
+  /// In en, this message translates to:
+  /// **'Emergency Leave'**
+  String get emergencyLeave;
+
+  /// No description provided for @startDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Date'**
+  String get startDate;
+
+  /// No description provided for @endDate.
+  ///
+  /// In en, this message translates to:
+  /// **'End Date'**
+  String get endDate;
+
+  /// No description provided for @dateFormat.
+  ///
+  /// In en, this message translates to:
+  /// **'DD/MM/YYYY'**
+  String get dateFormat;
+
+  /// No description provided for @reason.
+  ///
+  /// In en, this message translates to:
+  /// **'Reason'**
+  String get reason;
+
+  /// No description provided for @reasonHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your reason'**
+  String get reasonHint;
+
+  /// No description provided for @attachSupportingDocument.
+  ///
+  /// In en, this message translates to:
+  /// **'Attach supporting document'**
+  String get attachSupportingDocument;
+
+  /// No description provided for @uploadImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload image'**
+  String get uploadImage;
+
+  /// No description provided for @submitRequest.
+  ///
+  /// In en, this message translates to:
+  /// **'Submit Request'**
+  String get submitRequest;
+
+  /// No description provided for @leaveHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Leave History'**
+  String get leaveHistory;
+
+  /// No description provided for @noLeaveHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'No leave history found.'**
+  String get noLeaveHistory;
+
+  /// No description provided for @view.
+  ///
+  /// In en, this message translates to:
+  /// **'View All'**
+  String get view;
+
+  /// No description provided for @approved.
+  ///
+  /// In en, this message translates to:
+  /// **'Approved'**
+  String get approved;
+
+  /// No description provided for @leaveRequestSubmittedSuccessfully.
+  ///
+  /// In en, this message translates to:
+  /// **'Leave request submitted successfully'**
+  String get leaveRequestSubmittedSuccessfully;
+
+  /// No description provided for @pleaseSelectLeaveType.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select a leave type.'**
+  String get pleaseSelectLeaveType;
+
+  /// No description provided for @pleaseSelectStartDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select a start date.'**
+  String get pleaseSelectStartDate;
+
+  /// No description provided for @pleaseSelectEndDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select an end date.'**
+  String get pleaseSelectEndDate;
+
+  /// No description provided for @pleaseEnterReason.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a reason.'**
+  String get pleaseEnterReason;
+
+  /// No description provided for @balance.
+  ///
+  /// In en, this message translates to:
+  /// **'Balance'**
+  String get balance;
+
+  /// No description provided for @daysLeft.
+  ///
+  /// In en, this message translates to:
+  /// **'days left'**
+  String get daysLeft;
+
+  /// No description provided for @days.
+  ///
+  /// In en, this message translates to:
+  /// **'days'**
+  String get days;
+
+  /// No description provided for @atAGlance.
+  ///
+  /// In en, this message translates to:
+  /// **'At a glance'**
+  String get atAGlance;
+
+  /// No description provided for @goodMorning.
+  ///
+  /// In en, this message translates to:
+  /// **'Good morning'**
+  String get goodMorning;
+
+  /// No description provided for @thisMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'THIS MONTH'**
+  String get thisMonth;
+
+  /// No description provided for @yourPerformance.
+  ///
+  /// In en, this message translates to:
+  /// **'Your performance'**
+  String get yourPerformance;
+
+  /// No description provided for @fromLastMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'from last month'**
+  String get fromLastMonth;
+
+  /// No description provided for @overall.
+  ///
+  /// In en, this message translates to:
+  /// **'Overall'**
+  String get overall;
+
+  /// No description provided for @quality.
+  ///
+  /// In en, this message translates to:
+  /// **'Quality'**
+  String get quality;
+
+  /// No description provided for @performance.
+  ///
+  /// In en, this message translates to:
+  /// **'Performance'**
+  String get performance;
+
+  /// No description provided for @april.
+  ///
+  /// In en, this message translates to:
+  /// **'Apr'**
+  String get april;
+
+  /// No description provided for @may.
+  ///
+  /// In en, this message translates to:
+  /// **'May'**
+  String get may;
+
+  /// No description provided for @june.
+  ///
+  /// In en, this message translates to:
+  /// **'Jun'**
+  String get june;
+
+  /// No description provided for @july.
+  ///
+  /// In en, this message translates to:
+  /// **'Jul'**
+  String get july;
+
+  /// No description provided for @august.
+  ///
+  /// In en, this message translates to:
+  /// **'Aug'**
+  String get august;
+
+  /// No description provided for @september.
+  ///
+  /// In en, this message translates to:
+  /// **'Sep'**
+  String get september;
+
+  /// No description provided for @performanceTrend.
+  ///
+  /// In en, this message translates to:
+  /// **'Performance trend'**
+  String get performanceTrend;
+
+  /// No description provided for @personalGoals.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal goals'**
+  String get personalGoals;
+
+  /// No description provided for @target.
+  ///
+  /// In en, this message translates to:
+  /// **'Target:'**
+  String get target;
+
+  /// No description provided for @onTrack.
+  ///
+  /// In en, this message translates to:
+  /// **'On Track'**
+  String get onTrack;
+
+  /// No description provided for @aiAssistant.
+  ///
+  /// In en, this message translates to:
+  /// **'AI Assistant'**
+  String get aiAssistant;
+
+  /// No description provided for @careerCoachingHrPolicySupport.
+  ///
+  /// In en, this message translates to:
+  /// **'Career coaching & HR policy support'**
+  String get careerCoachingHrPolicySupport;
+
+  /// No description provided for @careerCoach.
+  ///
+  /// In en, this message translates to:
+  /// **'Career Coach'**
+  String get careerCoach;
+
+  /// No description provided for @policyAssistant.
+  ///
+  /// In en, this message translates to:
+  /// **'Policy Assistant'**
+  String get policyAssistant;
+
+  /// No description provided for @askAboutPolicyOrBalance.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask about policy or leave balance'**
+  String get askAboutPolicyOrBalance;
+
+  /// No description provided for @actionPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Action plan'**
+  String get actionPlan;
+
+  /// No description provided for @developmentAreas.
+  ///
+  /// In en, this message translates to:
+  /// **'Development areas'**
+  String get developmentAreas;
+
+  /// No description provided for @strengths.
+  ///
+  /// In en, this message translates to:
+  /// **'Strengths'**
+  String get strengths;
+
+  /// No description provided for @progress.
+  ///
+  /// In en, this message translates to:
+  /// **'Progress'**
+  String get progress;
+
+  /// No description provided for @profileJobDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Job details'**
+  String get profileJobDetails;
+
+  /// No description provided for @profileEmployeeId.
+  ///
+  /// In en, this message translates to:
+  /// **'Employee ID'**
+  String get profileEmployeeId;
+
+  /// No description provided for @profileJoined.
+  ///
+  /// In en, this message translates to:
+  /// **'Joined'**
+  String get profileJoined;
+
+  /// No description provided for @profileManagedByHr.
+  ///
+  /// In en, this message translates to:
+  /// **'Managed by HR'**
+  String get profileManagedByHr;
+
+  /// No description provided for @profileDirectManager.
+  ///
+  /// In en, this message translates to:
+  /// **'DIRECT MANAGER'**
+  String get profileDirectManager;
+
+  /// No description provided for @profileHeadOfOperations.
+  ///
+  /// In en, this message translates to:
+  /// **'Head of Operations'**
+  String get profileHeadOfOperations;
+
+  /// No description provided for @profileWorkLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'WORK LOCATION'**
+  String get profileWorkLocation;
+
+  /// No description provided for @profileWithinAssignedRadius.
+  ///
+  /// In en, this message translates to:
+  /// **'Within\nassigned\nradius'**
+  String get profileWithinAssignedRadius;
+
+  /// No description provided for @profileWorkEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'WORK EMAIL'**
+  String get profileWorkEmail;
+
+  /// No description provided for @profileWorkPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'WORK PHONE'**
+  String get profileWorkPhone;
+
+  /// No description provided for @profileContact.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact'**
+  String get profileContact;
+
+  /// No description provided for @profileActiveFullTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Active / Full-Time'**
+  String get profileActiveFullTime;
+
+  /// No description provided for @profilePhotoUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile photo updated successfully'**
+  String get profilePhotoUpdated;
+
+  /// No description provided for @profilePhotoChoose.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose photo'**
+  String get profilePhotoChoose;
+
+  /// No description provided for @profilePhotoDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete profile photo'**
+  String get profilePhotoDelete;
+
+  /// No description provided for @profilePhotoDeleteConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete your profile photo?'**
+  String get profilePhotoDeleteConfirm;
+
+  /// No description provided for @profilePhotoDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile photo deleted successfully'**
+  String get profilePhotoDeleted;
+
+  /// No description provided for @editProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit profile'**
+  String get editProfile;
+
+  /// No description provided for @profileName.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get profileName;
+
+  /// No description provided for @profilePhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone'**
+  String get profilePhone;
+
+  /// No description provided for @profileAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Address'**
+  String get profileAddress;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
+
+  /// No description provided for @profileUpdateSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile details updated successfully'**
+  String get profileUpdateSuccess;
+
+  /// No description provided for @profileNameRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a name'**
+  String get profileNameRequired;
+
+  /// No description provided for @logoutConfirmMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to logout?'**
+  String get logoutConfirmMessage;
+
+  /// No description provided for @preferences.
+  ///
+  /// In en, this message translates to:
+  /// **'Preferences'**
+  String get preferences;
+
+  /// No description provided for @biometricLogin.
+  ///
+  /// In en, this message translates to:
+  /// **'Biometric login'**
+  String get biometricLogin;
+
+  /// No description provided for @fingerprintFaceId.
+  ///
+  /// In en, this message translates to:
+  /// **'Fingerprint / Face ID'**
+  String get fingerprintFaceId;
+
+  /// No description provided for @pushNotifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Push notifications'**
+  String get pushNotifications;
+
+  /// No description provided for @tasksApprovalsReminders.
+  ///
+  /// In en, this message translates to:
+  /// **'Tasks, approvals, reminders'**
+  String get tasksApprovalsReminders;
+
+  /// No description provided for @appDisplayLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'App display language'**
+  String get appDisplayLanguage;
+
+  /// No description provided for @logoutConfirmationMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to log out?'**
+  String get logoutConfirmationMessage;
+
+  /// No description provided for @addNoteBeforeSubmit.
+  ///
+  /// In en, this message translates to:
+  /// **'Please add a note before submitting'**
+  String get addNoteBeforeSubmit;
+
+  /// No description provided for @uploadingFiles.
+  ///
+  /// In en, this message translates to:
+  /// **'Uploading files...'**
+  String get uploadingFiles;
+
+  /// No description provided for @invalidTaskId.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid task ID'**
+  String get invalidTaskId;
+
+  /// No description provided for @taskSubmitFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to submit task. Please check your internet connection and try again.'**
+  String get taskSubmitFailed;
+
+  /// No description provided for @details.
+  ///
+  /// In en, this message translates to:
+  /// **'Details'**
+  String get details;
+
+  /// No description provided for @goalDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Goal Details'**
+  String get goalDetails;
+
+  /// No description provided for @currentValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Current Value'**
+  String get currentValue;
+
+  /// No description provided for @targetValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Target Value'**
+  String get targetValue;
+
+  /// No description provided for @targetDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Target Date'**
+  String get targetDate;
+
+  /// No description provided for @createdAt.
+  ///
+  /// In en, this message translates to:
+  /// **'Created At'**
+  String get createdAt;
+
+  /// No description provided for @goals.
+  ///
+  /// In en, this message translates to:
+  /// **'Goals'**
+  String get goals;
+
+  /// No description provided for @noGoalsFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No goals found'**
+  String get noGoalsFound;
+
+  /// No description provided for @january.
+  ///
+  /// In en, this message translates to:
+  /// **'January'**
+  String get january;
+
+  /// No description provided for @february.
+  ///
+  /// In en, this message translates to:
+  /// **'February'**
+  String get february;
+
+  /// No description provided for @march.
+  ///
+  /// In en, this message translates to:
+  /// **'March'**
+  String get march;
+
+  /// No description provided for @october.
+  ///
+  /// In en, this message translates to:
+  /// **'October'**
+  String get october;
+
+  /// No description provided for @november.
+  ///
+  /// In en, this message translates to:
+  /// **'November'**
+  String get november;
+
+  /// No description provided for @december.
+  ///
+  /// In en, this message translates to:
+  /// **'December'**
+  String get december;
+
+  /// No description provided for @policyAssistantWelcome.
+  ///
+  /// In en, this message translates to:
+  /// **'Hi, I\'m your HR Policy Assistant. Ask me about leave policies, benefits, or your current balances.'**
+  String get policyAssistantWelcome;
+
+  /// No description provided for @policyAssistantThinking.
+  ///
+  /// In en, this message translates to:
+  /// **'AI is thinking...'**
+  String get policyAssistantThinking;
+
+  /// No description provided for @deleteMessageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete message'**
+  String get deleteMessageTitle;
+
+  /// No description provided for @deleteFailedMessageConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you want to delete the message that was not sent?'**
+  String get deleteFailedMessageConfirmation;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// No description provided for @policyMessageNotSentLongPress.
+  ///
+  /// In en, this message translates to:
+  /// **'Not sent • Long press to delete'**
+  String get policyMessageNotSentLongPress;
+
+  /// No description provided for @sendMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Send message'**
+  String get sendMessage;
+
+  /// No description provided for @employeeIdNotAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Employee ID is not available.'**
+  String get employeeIdNotAvailable;
+
+  /// No description provided for @policyAssistantNoAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'No answer provided.'**
+  String get policyAssistantNoAnswer;
+
+  /// No description provided for @policyAssistantUnexpectedError.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong. Please try again.'**
+  String get policyAssistantUnexpectedError;
+
+  /// No description provided for @noLeaveBalancesFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No leave balances found'**
+  String get noLeaveBalancesFound;
+
+  /// No description provided for @noLeaveHistoryFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No leave history found'**
+  String get noLeaveHistoryFound;
+}
+
+class _AppLocalizationsDelegate
+    extends LocalizationsDelegate<AppLocalizations> {
+  const _AppLocalizationsDelegate();
+
+  @override
+  Future<AppLocalizations> load(Locale locale) {
+    return SynchronousFuture<AppLocalizations>(lookupAppLocalizations(locale));
+  }
+
+  @override
+  bool isSupported(Locale locale) =>
+      <String>['ar', 'en'].contains(locale.languageCode);
+
+  @override
+  bool shouldReload(_AppLocalizationsDelegate old) => false;
+}
+
+AppLocalizations lookupAppLocalizations(Locale locale) {
+  // Lookup logic when only language code is specified.
+  switch (locale.languageCode) {
+    case 'ar':
+      return AppLocalizationsAr();
+    case 'en':
+      return AppLocalizationsEn();
+  }
+
+  throw FlutterError(
+    'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+    'an issue with the localizations generation tool. Please file an issue '
+    'on GitHub with a reproducible sample app and the gen-l10n configuration '
+    'that was used.',
+  );
+}
