@@ -1,164 +1,103 @@
-# Team Notes
+# 🚀 WorkWise – Smart Employee Management App
 
-> الحاجات اللي اتغيرت + الحاجات اللي محتاجين ناخد بالنا منها عشان محدش يتلغبط.
+WorkWise is a smart employee management application designed to simplify daily HR operations and improve communication between employees and management.
 
----
+The app provides employees with an easy way to manage their tasks, track attendance, submit leave requests, monitor performance, and stay updated through notifications — all in one place.
 
-## 1. Architecture
+## 📱 App Preview
 
-### ⚠️ مهم جدًا
+<p align="center">
+  <img src="screenshots/home.png" width="250" alt="WorkWise Home Screen"/>
+</p>
 
-أي Feature جديدة **لازم تلتزم بالـ structure ده:**
+## ✨ Features
+
+- **Authentication:** Secure employee login and account access.
+- **Dashboard:** View important work information and daily updates.
+- **Attendance Management:** Check in, check out, and track attendance.
+- **Task Management:** View assigned tasks, track progress, and submit completed work.
+- **Leave Management:** Submit leave requests and follow their status.
+- **Performance Tracking:** Monitor employee performance and progress.
+- **Notifications:** Receive important updates and announcements.
+- **Profile Management:** View and manage employee information.
+- **AI-Powered Assistance:** Smart HR assistance and career guidance.
+
+## 🛠️ Tech Stack
+
+- **Framework:** Flutter
+- **Programming Language:** Dart
+- **State Management:** [Add the state management solution used]
+- **Backend & Database:** [Add your backend technology]
+- **API Integration:** RESTful APIs
+- **Architecture:** Clean Architecture
+- **Version Control:** Git & GitHub
+
+## 📂 Project Structure
 
 ```text
-auth/
-├── data/
-│   ├── datasources/
-│   ├── models/
-│   └── repositories/
+lib/
+├── core/
+│   ├── network/
+│   ├── routing/
+│   ├── theme/
+│   └── utils/
 │
-├── domain/
-│   ├── entities/
-│   ├── repositories/
-│   └── usecases/
+├── features/
+│   ├── authentication/
+│   ├── home/
+│   ├── attendance/
+│   ├── tasks/
+│   ├── leave/
+│   ├── performance/
+│   ├── notifications/
+│   └── profile/
 │
-└── presentation/
-    ├── cubit/
-    ├── screens/
-    └── widgets/
+└── main.dart
 ```
 
-**ممنوع تغيير أسماء الـ folders أو عمل structure مختلف.**
+## ⚙️ Getting Started
 
----
+### Prerequisites
 
-## 2. Core
+- Flutter SDK
+- Dart SDK
+- Android Studio or VS Code
+- Git
 
-قبل ما تعمل أي Widget أو Component جديد:
+### Installation
 
-* دور الأول في `core`
-* لو فيه حاجة مشابهة استخدمها
-* متعملش نفس الـ component مرة تانية داخل الـ feature
+1. Clone the repository:
 
----
-
-## 3. Localization
-
-استخدم الـ extension الموجودة هنا:
-
-[`lib/core/localization/localization_extension.dart`](lib/core/localization/localization_extension.dart)
-
-بدل:
-
-```dart
-final localization = AppLocalizations.of(context);
-
-Text(
-  localization.or,
-)
+```bash
+git clone YOUR_REPOSITORY_URL
 ```
 
-استخدم مباشرة:
+2. Navigate to the project directory:
 
-```dart
-Text(
-  context.l10.or,
-)
+```bash
+cd workwise
 ```
 
-### ❌ متعملش
+3. Install dependencies:
 
-```dart
-final localization = AppLocalizations.of(context);
+```bash
+flutter pub get
 ```
 
-### ✅ استخدم
+4. Run the application:
 
-```dart
-context.l10.translationKey
+```bash
+flutter run
 ```
 
----
+## 📲 Download the App
 
-## 4. Changes
+**Google Play:** [Download WorkWise](https://play.google.com/store/apps/details?id=com.alimohamed.workwise&hl=ar)
 
-### Core / General
+## 👨‍💻 Development
 
-* [`service_locator.dart`](lib/core/services/service_locator.dart)
+WorkWise was developed as a team project, focusing on building a practical employee management experience using Flutter and modern mobile development practices.
 
-  * استخدم الـ Service Locator الموجود هنا.
+## 📄 License
 
-* [`locale_provider.dart`](lib/core/localization/locale_provider.dart)
-
-  * ❌ تم حذف الملف، ملوش لازمة.
-
-* [`app_theme.dart`](lib/core/design_system/theme/app_theme.dart)
-
-  * اتضافت Comments بالعربي على الحاجات اللي اتغيرت.
-
-* [`app_text_styles.dart`](lib/core/design_system/typography/app_text_styles.dart)
-
-  * اتضافت Comments بالعربي على الحاجات اللي اتغيرت.
-
-* [`app_button.dart`](lib/core/design_system/widgets/buttons/app_button.dart)
-
-  * اتضافت Comments بالعربي على الحاجات اللي اتغيرت.
-
----
-
-# Zeyad
-
-### Localization
-
-استخدم:
-
-```dart
-context.l10.translationKey
-```
-
-بدل:
-
-```dart
-final localization = AppLocalizations.of(context);
-```
-
-### Login
-
-* [ ] ظبط لون الـ Login
-* [ ] حل مشكلة الـ Error اللي بيظهر أول ما ندوس على Login
-* [ ] ظبط انتقال الـ Fingerprint عشان يظهر الـ Bottom Navigation Bar
-* [ ] ظبط الـ Forgot Password
-
----
-
-# Ahmed
-
-### Job Detail
-
-في:
-
-[`lib/features/profile/widgets/job_detail_item.dart`](lib/features/profile/widgets/job_detail_item.dart)
-
-تم حذف `fontSize`.
-
-استخدم الـ `AppTextStyle` بدل `fontSize` مباشرة.
-
-### Main
-
-* [ ] شيل الـ Notifier من `main.dart`
-* [ ] خلي الـ UI يستخدم static data
-
-### Core
-
-استخدم الـ components الموجودة في `core` بدل ما تعمل components مشابهة جوه الـ feature.
-
----
-
-# Abo_Khalil
-
-* [ ] Add your changes here
-* [ ] Add any important notes هنا
-
-
-
-
+This project is intended for educational and portfolio purposes. Please contact the project owners before reusing or distributing its code.
